@@ -6,6 +6,34 @@ Jenkins is an open source automation server. It helps automate the parts of soft
 In Jenkins, a build trigger is a mechanism that initiates the execution of a Jenkins job or pipeline. Triggers are used to start builds automatically based on various events or conditions. There are several ways to trigger builds in Jenkins: which can be configured
 
 
+## Jenkins Build Triggers
+
+- Manual Build Trigger:
+Build Now: You can manually trigger a build at any time by clicking the “Build Now” or “Build” button on the Jenkins dashboard for a specific job.
+
+- Scheduled Build Trigger:
+Build Periodically: You can schedule builds to run at specific intervals using the “Build periodically” option in the job configuration
+
+- SCM (Source Code Management) Trigger:
+Poll SCM: If you’re using a version control system (e.g., Git, Subversion), you can configure the job to poll the repository for changes. When changes are detected, Jenkins will automatically trigger a build.
+
+
+- Webhooks Trigger: Many version control systems and external services support webhooks, which allow them to notify Jenkins when code changes occur.
+
+
+- Dependency Build Trigger: Build after other projects are built: You can configure a job to be triggered after one or more upstream jobs have been built successfully
+
+- Parameterized Build Trigger: You can set up parameterized builds where a build is triggered with specific parameter values. 
+
+- Pipeline Trigger: If you’re using Jenkins Pipelines (defined in a Jenkinsfile), you can use various triggers within the pipeline script itself. For example, you can set up a webhook trigger, a schedule trigger, or a manual input trigger as part of your pipeline script.
+
+- Remote API Trigger: You can trigger Jenkins builds remotely using its REST API. This allows you to programmatically initiate builds from external scripts or applications.
+
+- Plugin-Based Triggers: Jenkins has numerous plugins available that can provide additional trigger mechanisms. For example, the “GitHub Webhook” plugin allows Jenkins to listen to GitHub events and trigger builds accordingly.
+
+
+
+
 - We installing jenkins on docker container
 
 ```bash
