@@ -46,7 +46,7 @@ The main difference I see between Jenkins Freestyle projects and Pipeline is the
 - **Jenkinsfile**: Pipelines are created using a Jenkinsfile, which can be stored in a git repository.
 - **Pipeline Types**:
   - **Declarative Pipeline**: Always begins with `pipeline` and breaks down into stages that contain multiple steps.
-  - **Scripted Pipeline**: Begins with `node` and uses Groovy code, referencing Jenkins Pipeline DSL with stage elements (without needing steps).
+  - **Scripted Pipeline**: Begins with `node` and uses Groovy code, referencing Jenkins Pipeline DSL (Domain Specific Language) with stage elements (without needing steps).
 
 
 
