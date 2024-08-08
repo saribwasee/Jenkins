@@ -57,13 +57,35 @@ The main difference I see between Jenkins Freestyle projects and Pipeline is the
 - GUI-based where you can add plugins from tools and then use them in jobs by installing Package (Install plugins and add them in global configuration tools, then use them in jobs.)
   -  In the global configuration, you can add tools to use in your projects. You can install tools on the CLI or install plugins via the Jenkins portal.
 
-## Pipeline Scripting
-
 In Jenkins Pipelines, we use Groovy scripting language. Here is a sample pipeline script:
 
-```groovy
-#!/usr/bin/env groovy
+## Scripted Pipeline Example
 
+```groovy
+node {
+    stage('Build') {
+        script {
+            echo "Building the application..."
+        }
+    }
+
+    stage('Test') {
+        script {
+            echo "Testing the application..."
+        }
+    }
+
+    stage('Deploy') {
+        script {
+            echo "Deploying the application..."
+        }
+    }
+}
+```
+
+### Declarative Pipeline Example
+
+```groovy
 pipeline {
     agent none
     stages {
