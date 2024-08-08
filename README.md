@@ -28,56 +28,64 @@ In Jenkins, a build trigger is a mechanism that initiates the execution of a Jen
 
 - **Plugin-Based Triggers:** Jenkins has numerous plugins available that can provide additional trigger mechanisms. For example, the “GitHub Webhook” plugin allows Jenkins to listen to GitHub events and trigger builds accordingly.
 
-## Installing Jenkins on Docker
 
-To install Jenkins on a Docker container, use the following commands:
+# Jenkins: Freestyle Projects vs Pipeline Jobs
 
-```bash
-docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home jenkins/jenkins:lts 
-```
+The main difference I see between Jenkins Freestyle projects and Pipeline is the usage of GUI vs scripting
 
-If we need docker in inside the jenkins 
+## Freestyle Projects
+- **Use GUI**: Add different stages and steps using a graphical user interface.
+- **Suitable for Less Complex Scenarios**: Ideal for simpler projects or those new to Jenkins/CI solutions.
+- **Beginner-Friendly**: Easy to set up and understand.
+- **Limitations**: Can become difficult to manage and achieve desired results as scenarios grow in complexity.
 
-```bash
-docker run -p 8080:8080 -p 50000:50000 -d -v jenkins_home:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock -v $(which docker):/usr/bin/docker jenkins/jenkins:lts
-```
+## Pipeline Jobs
+- **Use Code**: Utilize Groovy language (similar to Java) for defining instructions.
+- **Version Control**: Since everything is in one script, it can be kept in source control, allowing for version tracking and rollback capabilities.
+- **Comprehensive Steps**: Entire pipeline consists of steps such as build, test, deploy, etc.
+- **Jenkinsfile**: Pipelines are created using a Jenkinsfile, which can be stored in a git repository.
+- **Pipeline Types**:
+  - **Declarative Pipeline**: Always begins with `pipeline` and breaks down into stages that contain multiple steps.
+  - **Scripted Pipeline**: Begins with `node` and uses Groovy code, referencing Jenkins Pipeline DSL with stage elements (without needing steps).
 
-To inspect the Docker volume:
 
-```bash
-docker volume inspect jenkins_home
-```
 
-In the global configuration, you can add tools to use in your projects. You can install tools on the CLI or install plugins via the Jenkins portal.
 
-Freestyle jobs are GUI-based where you can add plugins from tools and then use them in jobs. 
 
-## Package Installation
+## Freestyle jobs 
 
-1. Install plugins and add them in global configuration tools, then use them in jobs.
+- GUI-based where you can add plugins from tools and then use them in jobs by installing Package (Install plugins and add them in global configuration tools, then use them in jobs.)
+  -  In the global configuration, you can add tools to use in your projects. You can install tools on the CLI or install plugins via the Jenkins portal.
 
 ## Pipeline Scripting
 
 In Jenkins Pipelines, we use Groovy scripting language. Here is a sample pipeline script:
 
 ```groovy
-pipeline { 
-    agent any
+#!/usr/bin/env groovy
 
+pipeline {
+    agent none
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                echo "Building the application"
+                script {
+                    echo "Building the application..."
+                }
             }
         }
-        stage('Test') {
+        stage('test') {
             steps {
-                echo "Testing the application"
+                script {
+                    echo "Testing the application..."
+                }
             }
         }
-        stage('Push') {
+        stage('deploy') {
             steps {
-                echo "Pushing the application"
+                script {
+                    echo "Deploying the application..."
+                }
             }
         }
     }
