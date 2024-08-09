@@ -35,6 +35,7 @@ pipeline {
                     sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
                     // Pushing the Docker image to Docker Hub
                     sh "docker push saribwasee/demo-app:jma-1.0"
+                    // 
                 }
             }
         }
