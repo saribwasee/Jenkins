@@ -30,11 +30,11 @@ pipeline {
                 // Using Docker Hub credentials to build, login, and push the Docker image
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-ID', passwordVariable: 'PASSWORD', usernameVariable: 'USERNAME')]) {
                     // Building the Docker image with the specified tag
-                    sh "docker build -t saribwasee/demo-app:jma-1.0 ."
+                    sh "docker build -t (username)/demo-app:jma-1.0 ."
                     // Logging into Docker Hub using the provided credentials
                     sh "echo $PASSWORD | docker login -u $USERNAME --password-stdin"
                     // Pushing the Docker image to Docker Hub
-                    sh "docker push saribwasee/demo-app:jma-1.0" 
+                    sh "docker push (username)/demo-app:jma-1.0" 
                 }
             }
         }
