@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo "Getting the application"
                 // Cloning the Git repository and checking out the specified branch
-                git branch: 'bugfix/jenkins-pipeline', url: 'https://gitlab.com/nanuchi/java-maven-app.git'
+                git branch: 'bugfix/jenkins-pipeline', url: 'https://gitlab.com/(saribwasee)/java-maven-app.git'
             }
         }
 
