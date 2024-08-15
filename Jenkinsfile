@@ -40,6 +40,7 @@ pipeline {
         }
           stage("Deploy"){
              steps{
+                sh "docker pull (username)/demo-app:jma-1.0"
                 sh "docker run -d (username)/demo-app:jma-1.0"
                 sh "docker ps"
 
