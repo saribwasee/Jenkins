@@ -33,6 +33,11 @@ In Jenkins, a build trigger is a mechanism that initiates the execution of a Jen
 
 The main difference I see between Jenkins Freestyle projects and Pipeline is the usage of GUI vs scripting
 
+## Freestyle jobs 
+
+- GUI-based where you can add plugins from tools and then use them in jobs by installing Package (Install plugins and add them in global configuration tools, then use them in jobs.)
+  -  In the global configuration, you can add tools to use in your projects. You can install tools on the CLI or install plugins via the Jenkins portal.
+
 ## Freestyle Projects
 - **Use GUI**: Add different stages and steps using a graphical user interface.
 - **Suitable for Less Complex Scenarios**: Ideal for simpler projects or those new to Jenkins/CI solutions.
@@ -50,12 +55,6 @@ The main difference I see between Jenkins Freestyle projects and Pipeline is the
 
 
 
-
-
-## Freestyle jobs 
-
-- GUI-based where you can add plugins from tools and then use them in jobs by installing Package (Install plugins and add them in global configuration tools, then use them in jobs.)
-  -  In the global configuration, you can add tools to use in your projects. You can install tools on the CLI or install plugins via the Jenkins portal.
 
 In Jenkins Pipelines, we use Groovy scripting language. Here is a sample pipeline script:
 
